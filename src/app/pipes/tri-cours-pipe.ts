@@ -2,9 +2,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Cours } from '../composants/liste-cours/liste-cours'; 
   
 @Pipe({ name: 'triCours' }) 
-export class TriCoursPipe implements PipeTransform { 
-  transform(cours: Cours[], sens: 'asc' | 'desc' = 'asc'): Cours[] { 
-    const copie = [...cours].sort((a, b) => a.titre.localeCompare(b.titre)); 
-    return sens === 'desc' ? copie.reverse() : copie; 
+export class TriCoursPipe implements PipeTransform { // implémente l'interface PipeTransform pour créer un pipe de tri de cours
+  transform(cours: Cours[], sens: 'asc' | 'desc' = 'asc'): Cours[] { // par défaut, le tri est ascendant
+    const copie = [...cours].sort((a, b) => a.titre.localeCompare(b.titre)); // fait par défaut un tri ascendant
+    return sens === 'desc' ? copie.reverse() : copie; // si le sens est 'desc', on inverse le tableau trié
   } 
 } 

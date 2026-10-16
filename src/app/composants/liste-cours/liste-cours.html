@@ -1,4 +1,4 @@
-<div class="controles"> 
+<div class="controles">
   <input [(ngModel)]="recherche" placeholder="Rechercher un cours..."> 
   <select [(ngModel)]="tri"> 
     <option value="asc">Titre A → Z</option> 
@@ -25,7 +25,8 @@
         }
       }
       <p>Durée : {{ c.duree }}</p> 
-      <p>Places disponibles : {{ c.places }}</p> 
+      <p>{{ c.places | placesRestantes:10}}</p> 
+      <p>{{ c.titre | tronquer:20 }}</p>
     </article> 
   } @empty { 
     <p class="liste-vide">Aucun cours ne correspond à la recherche.</p> 
